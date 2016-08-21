@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+
+jar {
+	baseName = 'pismo-test-api'
+	version =  '0.1.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '1.4.0.RELEASE'
+	compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.7'
+	compile 'io.vertx:vertx-web:3.3.2'
+	compile 'io.vertx:vertx-mysql-postgresql-client:3.3.2'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.0.RELEASE'
+	compile group: 'io.vertx', name: 'vertx-lang-groovy', version: '3.3.2'
+
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.3'
+}
